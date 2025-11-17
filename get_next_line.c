@@ -6,8 +6,11 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:24 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/17 11:22:26 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/17 16:09:07 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
 
+char	*get_next_line(int fd)
+{}
