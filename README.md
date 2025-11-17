@@ -22,13 +22,11 @@ A **static variable** is a variable that **retains its value** between function 
 5. State Preservation
 
 ## **Behaviour**
-**General Behaviour:** A function that returns a line read from a file descriptor
-
-**Parameters:** The file descriptor to read from.
-
-**Return value:**
-1. Read line (correct behavior)
-2. NULL (there is nothing else to read, or an error occurred)
+- **General Behaviour:** A function that returns a line read from a file descriptor
+- **Parameters:** The file descriptor to read from.
+- **Return value:**
+  1. Read line (correct behavior)
+  2. NULL (there is nothing else to read, or an error occurred)
 
 >[!NOTE]
 > The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
