@@ -25,15 +25,21 @@ A **static variable** is a variable that **retains its value** between function 
 >[!TIP]
 > Use the following command to create files with a specific amount of characters per line.
 
-```< /dev/urandom tr -dc "[:print:]" | fold -w 5000 | head -c15000 > file.txt```
+```< /dev/urandom tr -dc "[:print:]" | fold -w 1024 | head -n 4 > file.txt```
 
 ### Command Breakdown
-`/dev/urandom` — A special file in Unix-like operating systems that provides **random numbers** from a cryptographically secure pseudorandom number generator (CSPRNG).
+`/dev/urandom` A special file in Unix-like operating systems that provides **random numbers** from a cryptographically secure pseudorandom number generator (CSPRNG).
 
-`"[:print:]"` — The ascii category of characters you want to include. 
+`"[:print:]"` The ascii category of characters you want to include. 
 - `alnum`: alphanumeric characters
 - `alpha`: letters
 - `upper`: uppercase letters
 - `lower`: lowercase letters
 - `digit`: digits
-- 
+- `graph`: 
+
+`fold -w 1024` Fills lines with n characters (1024 in the example).
+
+`head -n 4` Outputs n amount of lines (4 in the example).
+
+`file.txt` Redirects the final output to a file (file.txt in the example).
