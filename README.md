@@ -1,3 +1,4 @@
+# get_next_line
 >[!IMPORTANT]
 > Why get_next_line? It's a good way to introduce us to **static variables**.
 
@@ -19,3 +20,4 @@ A **static variable** is a variable that **retains its value** between function 
 3. Caching/Memoisation (optimisation)
 4. Configuration Constants
 5. State Preservation
+
