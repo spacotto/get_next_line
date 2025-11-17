@@ -22,7 +22,7 @@ A **static variable** is a variable that **retains its value** between function 
 5. State Preservation
 
 ## **Behaviour**
-- **General Behaviour:** A function that returns a line read from a file descriptor
+- **General Behaviour:** A function that returns a line read from a file descriptor.
 - **Parameters:** The file descriptor to read from.
 - **Return value:**
   - Read line (correct behavior)
