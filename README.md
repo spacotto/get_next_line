@@ -37,7 +37,7 @@ A **static variable** is a variable that **retains its value** between function 
 | `file.txt`        | Redirects the final output to a file (file.txt in the example).                                                                                        |
 
 >[!NOTE]
->If your write `head -c` instead of `head -n`, you can set the total amount of characters contained in the file.
+>If your use `head -c` instead of `head -n`, you can set the **total amount of characters** included in the file.
 
 >[!TIP]
->The available ascii categories of characters follow the same logic of the `isalpha` group of functions: `alnum` (alphanumeric characters), `alpha` (letters), `upper` (uppercase letters), `lower` (lowercase letters), `digit` (digits), `graph` (printable charactera except space). 
+>The available ascii categories of characters follow the same logic of the `isalpha` group of functions: `alnum` (alphanumeric characters), `alpha` (letters), `upper` (uppercase letters), `lower` (lowercase letters), `digit` (digits), `graph` (printable charactera except space), `punct` (punctuation characters), `xdigit` (hexadecimal characters). 
