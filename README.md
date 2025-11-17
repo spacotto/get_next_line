@@ -21,3 +21,19 @@ A **static variable** is a variable that **retains its value** between function 
 4. Configuration Constants
 5. State Preservation
 
+## Testing
+>[!TIP]
+> Use the following command to create files with a specific amount of characters per line.
+
+```< /dev/urandom tr -dc "[:print:]" | fold -w 5000 | head -c15000 > file.txt```
+
+### Command Breakdown
+`/dev/urandom` — A special file in Unix-like operating systems that provides **random numbers** from a cryptographically secure pseudorandom number generator (CSPRNG).
+
+`"[:print:]"` — The ascii category of characters you want to include. 
+- `alnum`: alphanumeric characters
+- `alpha`: letters
+- `upper`: uppercase letters
+- `lower`: lowercase letters
+- `digit`: digits
+- 
