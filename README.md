@@ -1,5 +1,5 @@
 >[!IMPORTANT]
-> Why get_next_line? It's a good way to introduce usto **static variables**.
+> Why get_next_line? It's a good way to introduce us to **static variables**.
 
 ## Static Variable
 ### Definition
