@@ -3,6 +3,7 @@
 ## About get_next_line
 ### Prototype
 `char *get_next_line(int fd);`
+
 A function that returns a line read from a file descriptor.
 
 ### Parameters
