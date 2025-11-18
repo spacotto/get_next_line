@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:40:18 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/18 15:43:01 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/18 16:09:02 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ int	main(int ac, char **av)
 	int	i;
 
 	i = 0;
-	if (ac == 1)
+	if (ac < 2)
 	{
-		printf(BOLD RED "ERROR! " RESET);
-		printf("Missing number of lines && FD");
-	}
-	if (ac == 2)
-	{
-		printf(BOLD RED "ERROR! " RESET);
-		printf("Missing number of lines || FD");
+		printf(BOLD RED "ERROR: Invalid format!\n" RESET);
+		printf(BOLD YELLOW "Valid format: [1] Number of lines [2] Source file\n" RESET);
 	}
 	if (ac > 2)
 	{
 		fd = open(av[2], O_RDONLY);
-		while (i < atoi(av[1]))
+		if (fd < 0)
+			printf(BOLD RED "Invalid source file! " RESET);
+		else
 		{
-			printf("%s", get_next_line(fd));
-			i++;
+			while (i < atoi(av[1]))
+			{
+				printf("%s", get_next_line(fd));
+				i++;
+			}
+			close(fd);
 		}
-		close(fd);
 	}
 	return (0);
 }
