@@ -1,9 +1,7 @@
 # get_next_line
 
 ## About get_next_line
-### Prototype
-`char *get_next_line(int fd);`
-
+### Definition
 A function that returns a line read from a file descriptor.
 
 ### Parameters
