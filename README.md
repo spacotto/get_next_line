@@ -1,8 +1,17 @@
 # get_next_line
 
-#
->[!IMPORTANT]
-> Why get_next_line? It's a good way to introduce us to **static variables**.
+## About get_next_line
+### Prototype
+`char *get_next_line(int fd);`
+
+- **General Behaviour:** A function that returns a line read from a file descriptor.
+- **Parameters:** The file descriptor to read from.
+- **Return value:**
+  - Read line (correct behavior)
+  - NULL (there is nothing else to read, or an error occurred)
+
+>[!NOTE]
+> The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
 
 ## Static Variable
 ### Definition
@@ -22,16 +31,6 @@ A **static variable** is a variable that **retains its value** between function 
 3. Caching/Memoisation (optimisation)
 4. Configuration Constants
 5. State Preservation
-
-## **Behaviour**
-- **General Behaviour:** A function that returns a line read from a file descriptor.
-- **Parameters:** The file descriptor to read from.
-- **Return value:**
-  - Read line (correct behavior)
-  - NULL (there is nothing else to read, or an error occurred)
-
->[!NOTE]
-> The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
 
 ## Testing
 >[!TIP]
