@@ -45,7 +45,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 // COLORS
 // ============================================================================
 
-# define BOLD "\e[1m"
+# define BOLD "\033[1m"
 # define RESET "\033[0m"
 # define GRAY "\033[0;90m"
 # define RED "\033[0;91m"
