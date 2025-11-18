@@ -1,4 +1,6 @@
 # get_next_line
+
+#
 >[!IMPORTANT]
 > Why get_next_line? It's a good way to introduce us to **static variables**.
 
