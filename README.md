@@ -20,7 +20,9 @@ The file descriptor to read from.
 >When building the function, the majority of people start with reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
 
 ## Buffer
-A buffer is a region of memory that persists until program termination.
+A buffer is a **temporary storage area in memory** used to hold data being transferred between different components.
+
+Buffers are typically implemented as **arrays** or **pointers**, such as `char *buffer` or `char buffer`, and serve to temporarily store input or output data, reducing the need for constant direct access to external sources and thereby improving efficiency.
 
 ## File Descriptor (FD)
 Text
