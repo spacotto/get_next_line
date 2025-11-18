@@ -19,6 +19,12 @@ The file descriptor to read from.
 >[!CAUTION]
 >When building the function, the majority of people start with reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
 
+## Buffer
+Text
+
+## File Descriptor (FD)
+Text
+
 ## Static Variable
 ### Definition
 A **static variable** is a variable that **retains its value** between function calls and exists **for the entire lifetime of the program**. It's allocated once in memory and persists until program termination. 
