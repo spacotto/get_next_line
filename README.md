@@ -3,12 +3,18 @@
 ## About get_next_line
 ### Prototype
 `char *get_next_line(int fd);`
+A function that returns a line read from a file descriptor.
 
-- **General Behaviour:** A function that returns a line read from a file descriptor.
-- **Parameters:** The file descriptor to read from.
-- **Return value:**
-  - Read line (correct behavior)
-  - NULL (there is nothing else to read, or an error occurred)
+### Parameters
+The file descriptor to read from.
+
+### Return Value
+**Read line**
+- Standard behavior
+  
+**NULL** 
+1. There is nothing else to read
+2. An error occurred
 
 >[!NOTE]
 > The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
