@@ -28,9 +28,15 @@ Buffers are typically implemented as **arrays** or **pointers**, such as `char *
 A file descriptor is an **integer value** that **uniquely identifies an open file or I/O** stream within a process, serving as a low-level handle for the operating system to manage access to resources such as files, sockets, and pipes. It is **returned** by the `open()` system call and is used with other low-level I/O functions like `read()`, `write()`, and `close()`.
 
 The C language provides **three standard file descriptors** by default: 
-1. `0` for standard input (`stdin`);
-2. `1` for standard output (`stdout`);
-3. `2` for standard error (`stderr`).
+- `0` for standard input (`stdin`);
+- `1` for standard output (`stdout`);
+- `2` for standard error (`stderr`).
+
+File descriptors are managed through system calls: 
+- `open()` opens a file and returns a descriptor;
+- `read()` and `write()` perform I/O operations using the descriptor;
+- `close()` terminates access and releases system resources.
+A file descriptor value of `-1` indicates an **error** occurred during the operation.
 
 ## Static Variable
 ### Definition
