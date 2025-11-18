@@ -20,7 +20,7 @@ The file descriptor to read from.
 >When building the function, the majority of people start with reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
 
 ## Buffer
-Text
+a buffer is a region of memory that persists until program termination.
 
 ## File Descriptor (FD)
 Text
