@@ -19,7 +19,7 @@ The file descriptor to read from.
 > The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
 
 ## Logic
-Lorem ipsum
+Despite being counterintuitive, when you start handleing the function, it is better to assume that your buffer had already been filled, and you're looking for the next `\n`.
 
 ## Static Variable
 ### Definition
