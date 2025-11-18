@@ -25,7 +25,12 @@ A buffer is a **temporary storage area in memory** used to hold data being trans
 Buffers are typically implemented as **arrays** or **pointers**, such as `char *buffer` or `char buffer`, and serve to temporarily store input or output data, reducing the need for constant direct access to external sources and thereby improving efficiency.
 
 ## File Descriptor (FD)
-Text
+A file descriptor is an **integer value** that **uniquely identifies an open file or I/O** stream within a process, serving as a low-level handle for the operating system to manage access to resources such as files, sockets, and pipes. It is **returned** by the `open()` system call and is used with other low-level I/O functions like `read()`, `write()`, and `close()`.
+
+The C language provides **three standard file descriptors** by default: 
+1. `0` for standard input (`stdin`);
+2. `1` for standard output (`stdout`);
+3. `2` for standard error (`stderr`).
 
 ## Static Variable
 ### Definition
