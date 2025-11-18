@@ -1,13 +1,10 @@
-# get_next_line
-
-## About get_next_line
-### Definition
+# Definition
 A function that returns a line read from a file descriptor.
 
-### Parameters
+# Parameters
 The file descriptor to read from.
 
-### Return Value
+# Return Value
 **Read line**
 - Standard behavior
   
@@ -18,8 +15,9 @@ The file descriptor to read from.
 >[!NOTE]
 > The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
 
-## Logic
-Despite being counterintuitive, when you start handleing the function, it is better to assume that your buffer had already been filled, and you're looking for the next `\n`.
+# Key Concepts
+>[!CAUTION]
+>When building the function, the majority of people start with reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
 
 ## Static Variable
 ### Definition
@@ -40,7 +38,7 @@ A **static variable** is a variable that **retains its value** between function 
 4. Configuration Constants
 5. State Preservation
 
-## Testing
+# Testing
 >[!TIP]
 > Use the following command to create files with a specific amount of characters per line.
 
