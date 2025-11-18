@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:24 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/17 16:09:07 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:04:52 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,8 @@ char	*get_next_line(int fd)
   ssize_t len;
   char *found;
 
-  if (memchr(buffer, '\n', strlen(buffer))
-  {
-    handle_it;
-  }
+// you're in the filled buffer: look for \n
 
-  while (1)
-    {
-     len = read(fd, buffer, BUFFER_SIZE);
-      buffer[len] = 0;
-      if (len < 0)
-        return (NULL);
-      if (memchr(buffer, '\n', len) || len == 0)
-        break; 
-    }
-  found = memchr(buffer, '\n', len);
-  if (found)
-  {
-    line = calloc(sizeof(char), len - strlen(found));
-    line = memmove(line, found, len - strlen(found));
-  }
-  buffer = buffer + (len - strlen(found));
+// read into the buffer
   return (line);
 }
