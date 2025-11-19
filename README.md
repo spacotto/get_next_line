@@ -50,6 +50,9 @@ A **static variable** is a variable that **retains its value** between function 
 | Default value     | Initialized to 0 (if not explicitly set) | Contains garbage value                |
 | Value persistence | Retained between calls                   | Lost when scope ceases to exit        |
 
+>[!WARNING]
+>If you use a static **structure**, you need to initialise all its elements in order.
+
 ### Common Use Cases
 1. Function Call Counters
 2. Singleton Pattern
