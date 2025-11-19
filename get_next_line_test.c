@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:40:18 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/18 16:09:02 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:13:48 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	int	fd;
-	int	i;
+	int		fd;
+	int		i;
+	char	*line;
 
 	i = 0;
 	if (ac < 2)
@@ -32,8 +33,10 @@ int	main(int ac, char **av)
 		{
 			while (i < atoi(av[1]))
 			{
-				printf("%s", get_next_line(fd));
+				line = get_next_line(fd);
+				printf("%s", line);
 				i++;
+				free(line);				
 			}
 			close(fd);
 		}

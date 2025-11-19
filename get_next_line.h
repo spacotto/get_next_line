@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:33 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/19 11:09:03 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:42:15 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,16 @@
 typedef struct	s_buffer
 {
 	char	buffer[BUFFER_SIZE];
-	char	*bookmark;
-} t_buffer;
+	char	*start;
+	char	*end;
+}	t_buffer;
+
+typedef struct	s_read
+{
+	char	*copy;
+	size_t	len;
+	ssize_t	bytes_read;
+}	t_read;
 
 // ============================================================================
 // PROTOTYPES
