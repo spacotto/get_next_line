@@ -17,88 +17,22 @@
 //	BUFFER_SIZE, we don't need to perform further readings, for we've gathered
 // 	all the necessary data.
 static int	find_line(t_buffer *buffer)
-{
-	size_t	i;
-
-	i = 0;
-	if (buffer->start == NULL)
-		return (0);
-	while (buffer->start + i <= buffer->end)
-	{
-		if (buffer->start[i] == '\n')
-		{
-			buffer->content = buffer->start + i;
-			return (1);
-		}
-		i++;
-	}
-	buffer->content = buffer->end;
-	return (0);
-}
+{}
 
 //	Once we find the end of the line (\n or \0), we can start composing the line
 //	we will return.
-static int	make_line(t_buffer *buffer, char **line, size_t len)
-{
-	char	*new;
-	size_t	old_len;
+static int	make_line(t_buffer *buffer)
+{}
 
-	old_len = *len;
-	if (!buffer->start)
-		return (1);
-	*len += *copy_til - buffer->start + 1;
-	new = malloc((*len + 1) * sizeof(char));
-	if (!new)
-	{
-		free(*line);
-		line = NULL;
-		return (0);
-	}
-	if (*line)
-		ft_memcpy(new, *line, old_len);
-	ft_memcpy(new + old_len, buffer->start, *len - old_len);
-	new[*len] = '\0';
-	buffer->start = *copy_til + 1;
-	if (buffer->start > buffer->end)
-		buffer->start = NULL;
-	free(*line);
-	*line = new;
-	return (1);
-}
-
-static char	*read_line(int fd, t_buffer *buffer, char **line)
-{
-	size_t	len;
-	ssize_t	bytes_read;
-	
-	len = 0;
-	while (!find_line(buffer, buffer->content))
-	{
-		if (!make_line(buffer, buffer->content, line, &len))
-			return (NULL);
-		bytes_read = read(fd, buffer->buffer, BUFFER_SIZE);
-		if (bytes_read == -1)
-			return (buffer->start = NULL, free(*line), NULL);
-		buffer->start = buffer->buffer;
-		buffer->end = buffer->start + bytes_read - 1;
-		if (buffer->end < buffer->start)
-			buffer->start = NULL;
-		if (bytes_read < BUFFER_SIZE)
-			break ;
-	}
-	find_line(buffer);
-	if (!make_line(buffer, line, &len))
-		return (NULL);
-	return (*line);
-}
+static char	*read_line(t_buffer *buffer)
+{}
 
 char	*get_next_line(int fd)
 {
 	char			*line;
-	static t_buffer	buffer = {{{0}, NULL, NULL, NULL}}; 
+	static t_buffer	buffer = {{0}}; 
 	
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	line = read_line(fd, &buffer, &line);
 	return (line);
 }
