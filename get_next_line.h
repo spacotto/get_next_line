@@ -37,9 +37,6 @@
 typedef struct	s_buffer
 {
 	char	buffer[BUFFER_SIZE];
-	char	*content;
-	char	*start;
-	char	*end;
 }	t_buffer;
 
 // ============================================================================
