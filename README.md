@@ -17,6 +17,8 @@ The file descriptor to read from.
 **NULL** 
 - There is nothing else to read
 - An error occurred
+  - Invalid input
+  - Read error
 
 >[!NOTE]
 > The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
