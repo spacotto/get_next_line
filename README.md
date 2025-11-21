@@ -1,13 +1,14 @@
 >[!CAUTION]
 >This is a work in progress!
 
-# Definition
+# About get_next_line
+### Definition
 A function that returns a line read from a file descriptor.
 
-# Parameters
+### Parameters
 The file descriptor to read from.
 
-# Return Value
+### Return Value
 **Read line**
 - Standard behavior
   
