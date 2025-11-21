@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:03 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/21 18:23:48 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/21 19:31:38 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	find_line(t_buffer *sbuffer)
 {
-	sbuffer->start = sbuffer->bookmark;
 	if (sbuffer->start != NULL)
 	{
-		sbuffer->bookmark = ft_memchr(sbuffer->start, '\n', BUFFER_SIZE);
+		sbuffer->end = ft_memchr(sbuffer->start, '\n', BUFFER_SIZE);
+		sbuffer->start = sbuffer->end;
 		return (1);
 	}
 	else
@@ -34,7 +34,7 @@ static void	make_line(t_buffer *sbuffer, t_line *sline)
 		return ;
 	sline->line_len += sline->copy - sbuffer->start + 1;
 	chunk = ft_calloc(sline->line_len + 1, sizeof(char));
-	if (!new)
+	if (!chunk)
 	{
 		free(sline->line);
 		sline->line = NULL;
@@ -48,7 +48,7 @@ static void	make_line(t_buffer *sbuffer, t_line *sline)
 	if (sbuffer->start > sbuffer->end)
 		sbuffer->start = NULL;
 	free(sline->line);
-	sline->line = new;
+	sline->line = chunk;
 }
 
 static void	read_line(int fd, t_buffer *sbuffer, t_line *sline)
