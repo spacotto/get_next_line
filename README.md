@@ -1,6 +1,9 @@
 >[!CAUTION]
 >This is a work in progress!
 
+>[!CAUTION]
+>The original project requires all the files to be at the **root**. Moreover, it DOES NOT require Makefiles. I use them to speed up the testing process.
+
 # About get_next_line
 ### Definition
 `char *get_next_line(int fd)`
