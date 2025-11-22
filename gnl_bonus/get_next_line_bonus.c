@@ -6,81 +6,50 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:03 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/21 19:31:38 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/22 17:40:45 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static int	find_line(t_buffer *sbuffer)
+static int	search_data(t_buffer *buffer)
 {
-	if (sbuffer->start != NULL)
-	{
-		sbuffer->end = ft_memchr(sbuffer->start, '\n', BUFFER_SIZE);
-		sbuffer->start = sbuffer->end;
-		return (1);
-	}
-	else
+	buffer->new = ft_memchr(buffer->buffer, '\n', BUFFER_SIZE);
+	if (!buffer->new)
 		return (0);
+	return (1);
 }
 
-static void	make_line(t_buffer *sbuffer, t_line *sline)
+static void	join_data(t_buffer *buffer, t_line *line)
 {
-	char	*chunk;
-	size_t	chunk_len;
-
-	chunk_len = sline->line_len;
-	if (!sbuffer->start)
-		return ;
-	sline->line_len += sline->copy - sbuffer->start + 1;
-	chunk = ft_calloc(sline->line_len + 1, sizeof(char));
-	if (!chunk)
-	{
-		free(sline->line);
-		sline->line = NULL;
-		return ;
-	}
-	if (*sline->line)
-		ft_memcpy(chunk, sline->line, chunk_len);
-	ft_memcpy(chunk + chunk_len, sbuffer->start, sline->line_len - chunk_len);
-	chunk[sline->line_len] = '\0';
-	sbuffer->start = sline->copy + 1;
-	if (sbuffer->start > sbuffer->end)
-		sbuffer->start = NULL;
-	free(sline->line);
-	sline->line = chunk;
+	ft_calloc(line->bytes_read, sizeof(char));
+	ft_memcpy();
 }
 
-static void	read_line(int fd, t_buffer *sbuffer, t_line *sline)
+static void	read_data(int fd, t_buffer *buffer, t_line *line)
 {
-	ssize_t	bytes_read;
-
-	sline->line_len = 0;
-	while (!find_line(sbuffer))
+	while (1)
 	{
-		bytes_read = read(fd, sbuffer->buffer, BUFFER_SIZE);
-		if (bytes_read == -1)
+		line->bytes_read = read(fd, buffer->buffer, BUFFER_SIZE);
+		buffer->buffer[line->bytes_read] = '\0';
+		if (search_data(buffer))
+			break ;
+		if (line->bytes_read <= 0)
 		{
-			sline->line = NULL;
+			line->line = NULL;
 			return ;
 		}
-		sbuffer->start = sbuffer->buffer;
-		sbuffer->end = sbuffer->start + bytes_read - 1;
-		if (bytes_read < BUFFER_SIZE)
-			break ;
 	}
-	find_line(sbuffer);
-	make_line(sbuffer, sline);
+	join_data(buffer, line);
 }
 
 char	*get_next_line(int fd)
 {
-	static t_buffer	b[FD_MAX] = {{{0}, NULL, NULL, NULL}};
-	t_line			l;	
+	static t_buffer	b[FD_MAX] = {{{0}, NULL}};
+	t_line			l;
 
 	if (fd < 0 || fd >= FD_MAX || BUFFER_SIZE <= 0)
 		return (NULL);
-	l.line = NULL;
-	read_line(fd, &(b[fd]), &l);
+	read_data(fd, &b[fd], &l);
 	return (l.line);
 }
