@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:14 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/22 17:39:54 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:15:36 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+size_t	ft_strlen(const char *s);
 
 // ============================================================================
 // COLORS

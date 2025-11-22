@@ -6,13 +6,13 @@
 #    By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/21 14:56:20 by spacotto          #+#    #+#              #
-#    Updated: 2025/11/22 17:28:00 by spacotto         ###   ########.fr        #
+#    Updated: 2025/11/22 19:19:48 by spacotto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= get_next_line_bonus 
 CC		:= cc
-FLAGS	:= -c -Wall -Wextra -Werror
+FLAGS	:= -c -Wall -Wextra -Werror -D BUFFER_SIZE=42
 
 # ============================================================================
 # COLORS
