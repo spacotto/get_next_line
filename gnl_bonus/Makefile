@@ -97,4 +97,10 @@ buffer:		fclean #[2]
 #		To define BUFFER_SIZE through the rule, you have to use
 #		the command "make buffer BS=n" where n is the value you
 #		want to set.
-# [2]	
+#
+# [2]	The rule "buffer" (used to set up BUFFER_SIZE) fclean.
+#		This is because if you change BUFFER_SIZE after already 
+#		compiling, Make won't automatically recompile the object 
+#		files because it only checks file timestamps, not flag 
+#		changes. Thus, you need to fclean and make BUFFER_SIZE=n 
+#		to force a full rebuild.
