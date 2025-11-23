@@ -42,6 +42,7 @@
 typedef struct s_buffer
 {
 	char	buffer[BUFFER_SIZE];
+	char	*new_line;
 	char	*start;
 	char	*end;
 }	t_buffer;
