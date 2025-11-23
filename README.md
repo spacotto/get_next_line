@@ -26,6 +26,9 @@ The file descriptor to read from.
 >[!NOTE]
 > The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
 
+### Flowchart
+![flowchart](https://github.com/spacotto/get_next_line/blob/main/get_next_line_flowchart.png)
+
 # Key Concepts
 >[!CAUTION]
 >When building the function, the majority of people start with reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
