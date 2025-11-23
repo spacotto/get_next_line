@@ -13,7 +13,7 @@
 NAME	:= get_next_line_bonus 
 CC		:= cc
 FLAGS	:= -c -Wall -Wextra -Werror
-BS		:= 1 
+BS		:= 1 #[1]
 
 # ============================================================================
 # COLORS
@@ -83,7 +83,18 @@ fclean: 	clean
 re: 		fclean all
 			$(ECHO) "$(BLUE)Cleaned and rebuilt everything :)$(RESET)"
 
-buffer:		fclean
-			$(MAKE) FLAGS="$(FLAGS) -D BUFFER_SIZE=$(BS)"
+buffer:		fclean #[2]
+			$(MAKE) FLAGS="$(FLAGS) -D BUFFER_SIZE=$(BS)" #[1]
 
 .PHONY: all, clean, fclean, re, buffer
+
+# NOTES
+# [1]	$(BS) is the variable defining the BUFFER_SIZE. The flag
+#		"-D BUFFER_SIZE=n" (where n is the BUFFER_SIZE otherwise
+#		defined in the header file) is triggered by the "buffer" 
+#		rule. However, the variable must be initialised. Thus,
+#		"BS := 1" (note: 1 can be whatever number).
+#		To define BUFFER_SIZE through the rule, you have to use
+#		the command "make buffer BS=n" where n is the value you
+#		want to set.
+# [2]	
