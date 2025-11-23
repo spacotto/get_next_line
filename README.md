@@ -75,7 +75,16 @@ A **static variable** is a variable that **retains its value** between function 
 5. State Preservation
 
 # Testing
+>[!IMPORTANT]
+>For testing, I've created specific mains based on `(int argc, char **argv)`. This allows me to provide (1) the number of lines I want to get, and (2) the source files I want to use **without recompiling** every time. Hence, the **Makefile** creates a **program**, not a function archive.
 
+## Test Cases
+
+### File Sources
+Text
+
+### -D BUFFER_SIZE
+Text
 
 ## How to Generate Files
 >[!TIP]
