@@ -28,17 +28,25 @@
 // ============================================================================
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4 
+#  define BUFFER_SIZE 42
 # endif
 
 // ============================================================================
 // STRUCTURES
 // ============================================================================
 
-typedef struct	s_buffer
+typedef struct s_buffer
 {
 	char	buffer[BUFFER_SIZE];
+	char	*old;
+	char	*new;
 }	t_buffer;
+
+typedef struct s_line
+{
+	char	*line;
+	ssize_t bytes_read;
+}	t_line;
 
 // ============================================================================
 // PROTOTYPES
@@ -48,10 +56,11 @@ typedef struct	s_buffer
 char	*get_next_line(int fd);
 
 // UTILS
-void    *ft_calloc(size_t nmemb, size_t size);
-void    *ft_memchr(const void *s, int c, size_t n);
-void    *ft_memcpy(void *dest, const void *src, size_t n);
-void    *ft_memset(void *s, int c, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memchr(const void *s, int c, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
+size_t	ft_strlen(const char *s);
 
 // ============================================================================
 // COLORS
