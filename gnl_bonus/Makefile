@@ -6,15 +6,14 @@
 #    By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/21 14:56:20 by spacotto          #+#    #+#              #
-#    Updated: 2025/11/22 19:54:13 by spacotto         ###   ########.fr        #
+#    Updated: 2025/11/23 11:34:06 by spacotto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= get_next_line_bonus 
-CC			:= cc
-FLAGS		:= -c -Wall -Wextra -Werror
-BUFFER_SIZE	:= 1 
-
+NAME	:= get_next_line_bonus 
+CC		:= cc
+FLAGS	:= -c -Wall -Wextra -Werror
+BS		:= 1 
 
 # ============================================================================
 # COLORS
@@ -85,6 +84,6 @@ re: 		fclean all
 			$(ECHO) "$(BLUE)Cleaned and rebuilt everything :)$(RESET)"
 
 buffer:		fclean
-			$(MAKE) FLAGS="$(FLAGS) -D BUFFER_SIZE=$(BUFFER_SIZE)"
+			$(MAKE) FLAGS="$(FLAGS) -D BUFFER_SIZE=$(BS)"
 
 .PHONY: all, clean, fclean, re, buffer
