@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:24 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/23 20:53:17 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/23 21:04:55 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	search_data(t_buffer *buffer)
 
 static void	join_data(t_buffer *buffer, t_line *line)
 {
-	char	*line_tmp;
+	char	*line_tmp; // [4]
 	size_t	line_len;
 	size_t	chunk_len;
 
@@ -84,7 +84,7 @@ char	*get_next_line(int fd)
 	return (l.line);
 }
 
-//	NOTES
+// NOTES
 // [1]	Initialise the line that will be returned to NULL, and reset it every 
 // 		time an error occurs. This way, the return value will always be either
 // 		the line we got or NULL.
@@ -94,3 +94,7 @@ char	*get_next_line(int fd)
 //		readings, for we've gathered all the necessary data.
 // [3]	Once we find the end of the line (\n or \0), we can start composing the 
 //		line we will return.
+// [4]	When BUFFER_SIZE is too small to contain the whole line, we need to 
+// 		aggregate the line chunk by chunk. To do so, we need a tmp to which
+// 		we will keep adding the chunks extracted from the buffer. This way,
+// 		every time we read, we won't lose the initial pointer of the line.
