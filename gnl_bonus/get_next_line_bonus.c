@@ -56,7 +56,10 @@ static void	read_data(int fd, t_buffer *buffer, t_line *line)
 		{
 			line->bytes_read = read(fd, buffer->buffer, BUFFER_SIZE);
 			if (line->bytes_read <= 0)
+			{
+				line->line = NULL;
 				return ;
+			}
 			buffer->buffer[line->bytes_read] = '\0';
 			buffer->old = buffer->buffer;
 		}
