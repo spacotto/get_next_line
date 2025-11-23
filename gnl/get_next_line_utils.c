@@ -6,25 +6,25 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:50 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/18 15:02:27 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/23 17:15:26 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void    *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-    unsigned char   *str;
-    size_t          i;
+	unsigned char	*str;
+	size_t			i;
 
-    str = (unsigned char *)s;
-    i = 0;
-    while (i < n)
-    {
-        str[i] = c;
-        i++;
-    }
-    return (s);
+	str = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (s);
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -40,22 +40,22 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (NULL);
 }
 
-void    *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    const unsigned char *str;
-    unsigned char       target;
-    size_t              i;
+	const unsigned char	*str;
+	unsigned char		target;
+	size_t				i;
 
-    str = (const unsigned char *)s;
-    target = (unsigned char)c;
-    i = 0;
-    while (i < n)
-    {
-        if (str[i] == target)
-            return ((void *)&str[i]);
-        i++;
-    }
-    return (NULL);
+	str = (const unsigned char *)s;
+	target = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (str[i] == target)
+			return ((void *)&str[i]);
+		i++;
+	}
+	return (NULL);
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
