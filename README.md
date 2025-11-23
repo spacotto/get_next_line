@@ -78,13 +78,28 @@ A **static variable** is a variable that **retains its value** between function 
 >[!IMPORTANT]
 >For testing, I've created specific mains based on `(int argc, char **argv)`. This allows me to provide (1) the number of lines I want to get, and (2) the source files I want to use **without recompiling** every time. Hence, the **Makefile** creates a **program**, not a function archive.
 
+>[!CAUTION]
+>Both the buffer size and the line size can be of very different values. Thus, I've included a list of buffer and line sizes worth considering.
+
+>[!TIP]
+>Since the mandatory function does not support multiple fd management, I recommend creating a file containing all the line cases and reading it in full. On the other hand, to test the bonus function, it might be useful to create one file for each line typology.
+
 ## Test Cases
 
-### File Sources
-Text
+### Line Sizes
+- 4096 bytes
+- 1024 bytes
+- Empty line, as in a line made of `\n` only
+- No line (e.g.: an empty file)
 
-### -D BUFFER_SIZE
-Text
+### Buffer Sizes `-D BUFFER_SIZE=xxx`
+- `BUFFER_SIZE` is the **minimum** size (1)
+- `BUFFER_SIZE` is a **small** size (single-digit size != 1) 
+- `BUFFER_SIZE` is a **medium** size (up to 1024 bytes)
+- `BUFFER_SIZE` is a **large** size (more than 1024 bytes)
+- `BUFFER_SIZE` is the **same length as the line**
+- `BUFFER_SIZE` is **1 byte less** than the line
+- `BUFFER_SIZE` is **1 byte more** than the line
 
 ## How to Generate Files
 >[!TIP]
@@ -105,4 +120,4 @@ Text
 >If you use `head -c` instead of `head -n`, you can set the **total amount of characters** included in the file.
 
 >[!TIP]
->The available ascii categories of characters follow the same logic of the `isalpha` group of functions: `alnum` (alphanumeric characters), `alpha` (letters), `upper` (uppercase letters), `lower` (lowercase letters), `digit` (digits), `graph` (printable characters except space), `punct` (punctuation characters), `xdigit` (hexadecimal characters). 
+>The available ascii categories of characters follow the same logic of the `isalpha` group of functions: `alnum` (alphanumeric characters), `alpha` (letters), `upper` (uppercase letters), `lower` (lowercase letters), `digit` (digits), `graph` (printable characters except space), `punct` (punctuation characters), `xdigit` (hexadecimal characters).
