@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:24 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/23 18:31:51 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/23 20:53:17 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	search_data(t_buffer *buffer)
 
 static void	join_data(t_buffer *buffer, t_line *line)
 {
-	char	*origin;
+	char	*line_tmp;
 	size_t	line_len;
 	size_t	chunk_len;
 
@@ -34,16 +34,16 @@ static void	join_data(t_buffer *buffer, t_line *line)
 	chunk_len = ft_strlen(buffer->start);
 	if (buffer->end)
 		chunk_len = (buffer->end - buffer->start) + 1;
-	origin = ft_calloc(line_len + chunk_len + 1, sizeof(char));
-	if (!origin)
+	line_tmp = ft_calloc(line_len + chunk_len + 1, sizeof(char));
+	if (!line_tmp)
 		return ;
 	if (line->line)
 	{
-		ft_memcpy(origin, line->line, line_len);
+		ft_memcpy(line_tmp, line->line, line_len);
 		free(line->line);
 	}
-	ft_memcpy(origin + line_len, buffer->start, chunk_len);
-	line->line = origin;
+	ft_memcpy(line_tmp + line_len, buffer->start, chunk_len);
+	line->line = line_tmp;
 	buffer->start += chunk_len;
 }
 
