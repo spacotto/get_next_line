@@ -87,10 +87,11 @@ A **static variable** is a variable that **retains its value** between function 
 ## Test Cases
 
 ### Line Sizes
-- 4096 bytes
-- 1024 bytes
-- Empty line, as in a line made of `\n` only
 - No line (e.g.: an empty file)
+- Empty line, as in a line made of `\n` only
+- Small line (less than 8 bytes)
+- Medium line (around 1024 bytes)
+- Big line (more than 1024 bytes)
 
 ### Buffer Sizes `-D BUFFER_SIZE=xxx`
 - `BUFFER_SIZE` is the **minimum** size (1)
