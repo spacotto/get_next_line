@@ -13,6 +13,7 @@
 NAME	:= get_next_line 
 CC		:= cc
 FLAGS	:= -c -Wall -Wextra -Werror
+BS		:= 1 #[1]
 
 # ============================================================================
 # COLORS
@@ -81,4 +82,24 @@ fclean: 	clean
 re: 		fclean all
 			$(ECHO) "$(BLUE)Cleaned and rebuilt everything :)$(RESET)"
 
+buffer:		fclean #[2]
+			$(MAKE) FLAGS="$(FLAGS) -D BUFFER_SIZE=$(BS)" #[1]
+
 .PHONY: all, clean, fclean, re
+
+# NOTES
+# [1]	$(BS) is the variable defining the BUFFER_SIZE. The flag
+#		"-D BUFFER_SIZE=n" (where n is the BUFFER_SIZE otherwise
+#		defined in the header file) is triggered by the "buffer" 
+#		rule. However, the variable must be initialised. Thus,
+#		"BS := 1" (note: 1 can be whatever number).
+#		To define BUFFER_SIZE through the rule, you have to use
+#		the command "make buffer BS=n" where n is the value you
+#		want to set.
+#
+# [2]	The rule "buffer" (used to set up BUFFER_SIZE) fclean.
+#		This is because if you change BUFFER_SIZE after already 
+#		compiling, Make won't automatically recompile the object 
+#		files because it only checks file timestamps, not flag 
+#		changes. Thus, you need to fclean and make BUFFER_SIZE=n 
+#		to force a full rebuild.
