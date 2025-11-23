@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:33 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/23 17:10:30 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/23 17:36:26 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 typedef struct s_buffer
 {
 	char	buffer[BUFFER_SIZE];
-	char	*old;
-	char	*new;
+	char	*start;
+	char	*end;
 }	t_buffer;
 
 typedef struct s_line
