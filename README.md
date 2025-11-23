@@ -15,7 +15,7 @@ The file descriptor to read from.
 
 ### Return Value
 **Read line**
-- Standard behavior
+- Standard behaviour
   
 **NULL** 
 - There is nothing else to read
@@ -31,7 +31,7 @@ The file descriptor to read from.
 
 # Key Concepts
 >[!CAUTION]
->When building the function, the majority of people start with reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
+>When building the function, the majority of people start by reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
 
 ## Buffer
 A buffer is a **temporary storage area in memory** used to hold data being transferred between different components.
@@ -61,7 +61,7 @@ A **static variable** is a variable that **retains its value** between function 
 | :---------------- | :--------------------------------------- | :------------------------------------ |
 | Lifetime          | Entire program duration                  | Limited to **scope** (function/block) |
 | Memory allocation | Once, at program start                   | Each time scope is entered            |
-| Default value     | Initialized to 0 (if not explicitly set) | Contains garbage value                |
+| Default value     | Initialised to 0 (if not explicitly set) | Contains garbage value                |
 | Value persistence | Retained between calls                   | Lost when scope ceases to exit        |
 
 >[!WARNING]
@@ -75,22 +75,25 @@ A **static variable** is a variable that **retains its value** between function 
 5. State Preservation
 
 # Testing
+
+
+## How to Generate Files
 >[!TIP]
-> Use the following command to create files with a specific amount of characters per line.
+> Use the following command to create files with a specific number of characters per line.
 
 ```< /dev/urandom tr -dc "[:print:]" | fold -w 1024 | head -n 4 > file.txt```
 
 ### Command Breakdown
-| Command Parameter | Description |
-| :---------------- | :---------- |
+| Command Parameter | Description                                                                                                                                            |
+| :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/dev/urandom`    | A special file in Unix-like operating systems that provides **random numbers** from a cryptographically secure pseudorandom number generator (CSPRNG). |
-| `"[:print:]"`     | The ascii category of characters you want to include (printable characters in the example).                                                            | 
+| `"[:print:]"`     | The ASCII category of characters you want to include (printable characters in the example).                                                            | 
 | `fold -w 1024`    | Fills lines with n characters (1024 in the example).                                                                                                   |
 | `head -n 4`       | Outputs n amount of lines (4 in the example).                                                                                                          |
 | `file.txt`        | Redirects the final output to a file (file.txt in the example).                                                                                        |
 
 >[!NOTE]
->If your use `head -c` instead of `head -n`, you can set the **total amount of characters** included in the file.
+>If you use `head -c` instead of `head -n`, you can set the **total amount of characters** included in the file.
 
 >[!TIP]
 >The available ascii categories of characters follow the same logic of the `isalpha` group of functions: `alnum` (alphanumeric characters), `alpha` (letters), `upper` (uppercase letters), `lower` (lowercase letters), `digit` (digits), `graph` (printable characters except space), `punct` (punctuation characters), `xdigit` (hexadecimal characters). 
