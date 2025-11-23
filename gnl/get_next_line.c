@@ -6,13 +6,13 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:22:24 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/19 18:53:14 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/23 17:08:35 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	search_data(t_buffer *buffer) 
+static int	search_data(t_buffer *buffer)
 {
 	if (!buffer->old)
 		return (0);
@@ -89,13 +89,12 @@ char	*get_next_line(int fd)
 }
 
 //	NOTES
-// [1]	Initialise the line that will be returned to NULL, and reset it every time
-//		an error occurs. This way, the return value will always be either the line
-//		we got or NULL.
+// [1]	Initialise the line that will be returned to NULL, and reset it every 
+// 		time an error occurs. This way, the return value will always be either
+// 		the line we got or NULL.
 // [2]	Given that gnl shall be called in while loops and tested with different
-//		buffer sizes, we shall check if our buffer has already been filled. In fact, 
-//		when we use big BUFFER_SIZE, we don't need to perform further readings, for 
-//		we've gathered all the necessary data.
+//		buffer sizes, we shall check if our buffer has already been filled. In
+//		fact, when we use big BUFFER_SIZE, we don't need to perform further 
+//		readings, for we've gathered all the necessary data.
 // [3]	Once we find the end of the line (\n or \0), we can start composing the 
 //		line we will return.
-////////////////////////////////////////////////////////////////////////////////
