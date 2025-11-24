@@ -34,7 +34,6 @@ int	main(int ac, char **av)
 			printf(YELLOW "Valid format: [1] Number of lines [2] Source file\n" RESET);
 			return (-1);
 		}
-		printf("LOL");
 		int fd = open(av[2], O_RDONLY);
 		if (fd < 0)
 		{

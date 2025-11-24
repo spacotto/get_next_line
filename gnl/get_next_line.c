@@ -61,6 +61,7 @@ static void	read_data(int fd, t_buffer *buffer, t_line *line)
 			}
 			buffer->buffer[line->bytes_read] = '\0';
 			buffer->start = buffer->buffer;
+			buffer->end = buffer->start + line->bytes_read;
 		}
 		if (search_data(buffer)) // [2]
 		{
