@@ -51,7 +51,7 @@ static void	read_data(int fd, t_buffer *buffer, t_line *line)
 {
 	while (1)
 	{
-		if (!buffer->start || !*buffer->start)
+		if (!buffer->start || buffer->start >= buffer->end)
 		{
 			line->bytes_read = read(fd, buffer->buffer, BUFFER_SIZE);
 			if (line->bytes_read <= 0)
