@@ -6,7 +6,7 @@
 /*   By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:40:18 by spacotto          #+#    #+#             */
-/*   Updated: 2025/11/24 17:25:35 by spacotto         ###   ########.fr       */
+/*   Updated: 2025/11/24 18:20:53 by spacotto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 			int i = 0;
 			while (i < atoi(av[1]))
 			{
-				printf(BOLD_CYAN "\nGIVE NEXT LINE!\n" RESET);
+				printf(BOLD_CYAN "\nGIVE NEXT LINE! [%d]\n" RESET, i + 1);
 				char *line = get_next_line(0);
 				printf("%s", line);
 				free(line);
@@ -48,7 +48,7 @@ int	main(int ac, char **av)
 			}
 			return (0);
 		}
-		if (strcmp("stdin", av[2]) == 0)
+		if (strcmp("stdin", av[2]) != 0)
 		{
 			int fd = open(av[2], O_RDONLY);
 			if (fd < 0)
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 			int i = 0;
 			while (i < atoi(av[1]))
 			{
-				printf(BOLD_CYAN "\nGET NEXT LINE!\n" RESET);
+				printf(BOLD_CYAN "\nGET NEXT LINE! [%d]\n" RESET, i + 1);
 				char *line = get_next_line(fd);
 				printf("%s", line);
 				free(line);
