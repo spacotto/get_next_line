@@ -73,7 +73,7 @@ static void	read_data(int fd, t_buffer *buffer, t_line *line)
 
 char	*get_next_line(int fd)
 {
-	static t_buffer	b = {{0}, NULL, NULL, NULL};
+	static t_buffer	b = {{{0}, NULL, NULL, NULL}};
 	t_line			l;
 
 	l.line = NULL; // [1]
