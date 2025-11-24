@@ -53,6 +53,10 @@ int	main(int ac, char **av)
 	}
 	if (ac > 2)
 	{
+		printf(BOLD_CYAN "GIVE ME A LINE!\n" RESET);
+		char *line = get_next_line(0);
+		printf("%s", line);
+		free(line);
 		if (open_files(fd, ac, av) == -1)
 			return (-1);
 		while (l < atoi(av[1]))
@@ -61,7 +65,7 @@ int	main(int ac, char **av)
 			printf(BOLD_CYAN "\nGET NEXT LINE!\n" RESET);
 			while (f < ac - 2)
 			{
-				char *line = get_next_line(fd[f]);
+				line = get_next_line(fd[f]);
 				printf(YELLOW "File [%d] Line [%d]\n" RESET, fd[f], l);
 				printf("%s", line);
 				free(line);

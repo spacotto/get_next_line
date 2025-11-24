@@ -15,50 +15,61 @@
 
 int	main(int ac, char **av)
 {
-	if (ac < 4)
+	if (ac < 3)
 	{
 		printf(BOLD_RED "ERROR: not enough arguments!\n" RESET);
-		printf(YELLOW "Valid format: [1] Number of lines [2] Mode stdin (ON/OFF) [3] Source file\n" RESET);
+		printf(YELLOW "Valid format: [1] Number of lines [2] stdin || source file\n" RESET);
 		return (-1);
 	}
-	if (ac > 4)
+	if (ac > 3)
 	{
 		printf(BOLD_RED "ERROR: too many arguments!\n" RESET);
-		printf(YELLOW "Valid format: [1] Number of lines [2] Mode stdin (ON/OFF) [3] Source file\n" RESET);
+		printf(YELLOW "Valid format: [1] Number of lines [2] stdin || source file\n" RESET);
 		return (-1);
 	}
-	if (ac == 4)
+	if (ac == 3)
 	{
 		if (atoi(av[1]) == 0)
 		{
 			printf(BOLD_RED "Error: invalid number of lines!\n" RESET);
-			printf(YELLOW "Valid format: [1] Number of lines [2] Mode stdin (ON/OFF) [3] Source file\n" RESET);
+			printf(YELLOW "Valid format: [1] Number of lines [2] stdin || source file\n" RESET);
 			return (-1);
 		}
-		if (strcmp("ON", av[2]) == 0)
+		if (strcmp("stdin", av[2]) == 0)
 		{
-			char *line = get_next_line(0);
-			printf("%s", line);
-			free(line);
-			return(0);
+			int i = 0;
+			while (i < atoi(av[1]))
+			{
+				printf(BOLD_CYAN "\nGIVE NEXT LINE!\n" RESET);
+				char *line = get_next_line(0);
+				printf("%s", line);
+				free(line);
+				i++;				
+			}
+			return (0);
 		}
-		int fd = open(av[3], O_RDONLY);
-		if (fd < 0)
+		if (strcmp("stdin", av[2]) == 0)
 		{
-			printf(BOLD_RED "Error: invalid source file!\n" RESET);
-			printf(YELLOW "Valid format: [1] Number of lines [2] Mode stdin (ON/OFF) [3] Source file\n" RESET);
+			int fd = open(av[2], O_RDONLY);
+			if (fd < 0)
+			{
+				printf(BOLD_RED "Error: invalid source file!\n" RESET);
+				printf(YELLOW "Valid format: [1] Number of lines [2] stdin || source file\n" RESET);
+				close(fd);
+				return (-1);
+			}
+			int i = 0;
+			while (i < atoi(av[1]))
+			{
+				printf(BOLD_CYAN "\nGET NEXT LINE!\n" RESET);
+				char *line = get_next_line(fd);
+				printf("%s", line);
+				free(line);
+				i++;				
+			}
 			close(fd);
-			return (-1);
+			return (0);
 		}
-		int i = 0;
-		while (i < atoi(av[1]))
-		{
-			char *line = get_next_line(fd);
-			printf("%s", line);
-			free(line);
-			i++;				
-		}
-		close(fd);
 	}
 	return (0);
 }
