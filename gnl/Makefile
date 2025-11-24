@@ -34,7 +34,7 @@ WHITE	:= \033[0;97m
 # ============================================================================
 
 AR		:= @/bin/ar rcs
-ECHO	:= @echo -e
+ECHO	:= @echo
 MKDIR	:= @/bin/mkdir
 RM		:= @/bin/rm -rf
 
