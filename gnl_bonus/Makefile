@@ -6,12 +6,12 @@
 #    By: spacotto <spacotto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/21 14:56:20 by spacotto          #+#    #+#              #
-#    Updated: 2025/11/24 11:55:32 by spacotto         ###   ########.fr        #
+#    Updated: 2025/11/25 12:00:00 by spacotto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= get_next_line_bonus 
-CC		:= cc
+CC		:= @cc
 FLAGS	:= -c -Wall -Wextra -Werror
 BS		:= 1 #[1]
 
