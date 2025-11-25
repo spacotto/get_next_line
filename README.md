@@ -125,3 +125,12 @@ A **static variable** is a variable that **retains its value** between function 
 
 >[!TIP]
 >The available ascii categories of characters follow the same logic of the `isalpha` group of functions: `alnum` (alphanumeric characters), `alpha` (letters), `upper` (uppercase letters), `lower` (lowercase letters), `digit` (digits), `graph` (printable characters except space), `punct` (punctuation characters), `xdigit` (hexadecimal characters).
+
+>[!IMPORTANT]
+>You can avoid useing categories, and use specific ASCII characters. For example, if you want to create a file containing only `\n`, you can just write `"\n"` instead of `"[:print:]"`.
+
+## How to Generate Files: Lorem Ipsum
+Lorem Ipsum is placeholder text used in the printing and typesetting industry. It simulate natural text distribution for layout testing without distracting readers with meaningful content.
+
+>[!TIP]
+>There are several ways to generate Lorem Ipsum text. I use this online generator: [lipsum.com](https://www.lipsum.com/)
