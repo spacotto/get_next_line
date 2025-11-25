@@ -102,7 +102,10 @@ A **static variable** is a variable that **retains its value** between function 
 - `BUFFER_SIZE` is **1 byte less** than the line
 - `BUFFER_SIZE` is **1 byte more** than the line
 
-## How to Generate Files
+## How to Generate Files: urandom
+>[!IMPORTANT]
+>`/dev/random` and `/dev/urandom` are **special files** that provide random characters from a cryptographically secure pseudorandom number generator (CSPRNG).
+
 >[!TIP]
 > Use the following command to create files with a specific number of characters per line.
 
