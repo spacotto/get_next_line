@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME	:= get_next_line_bonus 
-CC		:= @cc
+CC		:= cc
 FLAGS	:= -c -Wall -Wextra -Werror
 BS		:= 1 #[1]
 
