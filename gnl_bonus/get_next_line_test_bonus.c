@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 			while (f < ac - 2)
 			{
 				line = get_next_line(fd[f]);
-				printf(YELLOW "File [%d] Line [%d]\n" RESET, fd[f], l);
+				printf(YELLOW "\nFile [%d] Line [%d]\n" RESET, fd[f], l);
 				printf("%s", line);
 				free(line);
 				f++;
