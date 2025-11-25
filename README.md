@@ -1,6 +1,3 @@
->[!CAUTION]
->This is a work in progress!
-
 # About get_next_line
 >[!CAUTION]
 >The original project requires all the files to be at the **root**. Moreover, it DOES NOT require Makefiles. I use them to speed up the testing process.
@@ -89,8 +86,8 @@ A **static variable** is a variable that **retains its value** between function 
 ### Line Sizes
 - No line (e.g.: an empty file)
 - Empty line, as in a line made of `\n` only
-- Small line (less than 8 bytes)
-- Medium line (around 1024 bytes)
+- Small line (less than 10 bytes)
+- Medium line (more than 10 bytes but less than 1024)
 - Big line (more than 1024 bytes)
 
 >[!TIP]
@@ -98,7 +95,7 @@ A **static variable** is a variable that **retains its value** between function 
 
 ### Buffer Sizes `-D BUFFER_SIZE=xxx`
 - `BUFFER_SIZE` is the **minimum** size (1)
-- `BUFFER_SIZE` is a **small** size (single-digit size != 1) 
+- `BUFFER_SIZE` is a **small** size (single-digit size != 1 but less than 10) 
 - `BUFFER_SIZE` is a **medium** size (up to 1024 bytes)
 - `BUFFER_SIZE` is a **large** size (more than 1024 bytes)
 - `BUFFER_SIZE` is the **same length as the line**
