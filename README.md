@@ -3,7 +3,9 @@
 >The original project requires all the files to be at the **root**. Moreover, it DOES NOT require Makefiles. I use them to speed up the testing process.
 
 ### Definition
-`char *get_next_line(int fd)`
+```
+char *get_next_line(int fd)
+```
 >[!NOTE]
 >A function that returns a line read from a file descriptor.
 
@@ -109,7 +111,9 @@ A **static variable** is a variable that **retains its value** between function 
 >[!TIP]
 > Use the following command to create files with a specific number of characters per line.
 
-```< /dev/urandom tr -dc "[:print:]" | fold -w 1024 | head -n 4 > file.txt```
+```
+< /dev/urandom tr -dc "[:print:]" | fold -w 1024 | head -n 4 > file.txt
+```
 
 ### Command Breakdown
 | Command Parameter | Description                                                                                                                                            |
