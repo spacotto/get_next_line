@@ -31,16 +31,16 @@ The file descriptor to read from.
 ```mermaid
 graph TD
     %% Nodes
-    Start([get_next_line\(int fd\)])
+    Start(["get_next_line(int fd)"])
     Valid{Is input valid?}
-    RetNull([Return \(NULL\)])
+    RetNull(["Return (NULL)"])
     BufEmpty{Is BUFFER empty?}
     Read[READ]
     Error{Error?}
-    HasNL{\\n?}
+    HasNL{"\n?"}
     JoinLine[Join Data]
     JoinBuf[Join Data]
-    RetLine([Return \(line\)])
+    RetLine(["Return (line)"])
 
     %% Connections
     Start --> Valid
