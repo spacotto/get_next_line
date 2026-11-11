@@ -28,6 +28,40 @@ The file descriptor to read from.
 ### Flowchart
 ![flowchart](https://github.com/spacotto/get_next_line/blob/main/get_next_line_flowchart.png)
 
+```mermaid
+graph TD
+    %% Nodes
+    Start([get_next_line\(int fd\)])
+    Valid{Is input valid?}
+    RetNull([Return \(NULL\)])
+    BufEmpty{Is BUFFER empty?}
+    Read[READ]
+    Error{Error?}
+    HasNL{\\n?}
+    JoinLine[Join Data]
+    JoinBuf[Join Data]
+    RetLine([Return \(line\)])
+
+    %% Connections
+    Start --> Valid
+    Valid -- NO --> RetNull
+    Valid -- YES --> BufEmpty
+    BufEmpty -- YES --> Read
+    BufEmpty -- NO --> HasNL
+    Read --> Error
+    Error -- YES --> RetNull
+    Error -- NO --> HasNL
+    HasNL -- YES --> JoinLine
+    HasNL -- NO --> JoinBuf
+    JoinBuf --> Read
+    JoinLine --> RetLine
+
+    %% Styling
+    style Start fill:#000,stroke:#000,color:#fff
+    style RetNull fill:#ff5252,stroke:#ff5252,color:#000
+    style RetLine fill:#5ce1e6,stroke:#5ce1e6,color:#000
+```
+
 # Key Concepts
 >[!CAUTION]
 >When building the function, the majority of people start by reading into the buffer. However, it is better to assume that your buffer has already been filled, and you're looking for the next `\n`.
