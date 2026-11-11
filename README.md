@@ -34,7 +34,7 @@ graph TD
     BufEmpty{Is BUFFER empty?}
     Read[READ]
     Error{Error?}
-    HasNL{"`\n`?"}
+    HasNL{"new line?"}
     JoinLine[Join Data]
     JoinBuf[Join Data]
     RetLine(["Return (line)"])
