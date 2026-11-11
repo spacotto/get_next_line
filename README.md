@@ -25,9 +25,6 @@ The file descriptor to read from.
 >[!NOTE]
 > The returned line should include the terminating `\n` character, **except when the end of the file is reached** and the file does not end with a `\n` character.
 
-### Flowchart
-![flowchart](https://github.com/spacotto/get_next_line/blob/main/get_next_line_flowchart.png)
-
 ```mermaid
 graph TD
     %% Nodes
@@ -37,7 +34,7 @@ graph TD
     BufEmpty{Is BUFFER empty?}
     Read[READ]
     Error{Error?}
-    HasNL{"\n?"}
+    HasNL{"\\n?"}
     JoinLine[Join Data]
     JoinBuf[Join Data]
     RetLine(["Return (line)"])
